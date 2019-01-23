@@ -17,5 +17,11 @@
         "laravel-mix": "^1.0",
         "lodash": "^4.17.4",
         "vue": "^2.5.7"
-    }
+    },
+    "name": "larabbs",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "https://github.com/mabengithub/larabbs.git",
+    "author": "maben <mabenchn@gmail.com>",
+    "license": "MIT"
 }
