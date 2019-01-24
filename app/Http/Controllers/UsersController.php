@@ -9,6 +9,11 @@ use App\Handlers\ImageUploadHandler;
 
 class UsersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth',['except' => 'show']);
+    }
+
     //用户个人信息页
     public function show(User $user)
     {
@@ -18,12 +23,26 @@ class UsersController extends Controller
     //用户详情编辑页面
     public function edit(User $user)
     {
+        try {
+            $this->authorize('update', $user);
+        } catch (\Exception $e) {
+            // echo '未授权！'
+            return redirect()->back();
+        }
+
     	return view('users.edit', compact('user'));
     }
 
     //用户修改功能
     public function update(UserRequest $request, ImageUploadHandler $uploader, User $user)
     {
+        try {
+            $this->authorize('update', $user);
+        } catch (\Exception $e) {
+            // echo '未授权！';
+             return redirect()->back();
+        }
+
         $data = $request->all();
 
         if (!empty($request->avatar)) {
