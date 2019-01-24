@@ -11,10 +11,10 @@
 					<div class="media-body">
 						<hr>
 						<h4><strong>个人简介</strong></h4>
-						<p>大家好，我叫小强，我是就是藏在你们心里多年大表哥。我的人生信条是，stay hungry， stay foolish</p>
+						<p>{{ $user->introduction}}</p>
 						<hr>
 						<h4><strong>注册于</strong></h4>
-						<p>January 01 2019</p>
+						<p>{{ $user->created_at->diffForHumans() }}</p>
 					</div>
 				</div>
 			</div>
