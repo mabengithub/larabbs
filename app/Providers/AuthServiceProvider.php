@@ -14,6 +14,7 @@ class AuthServiceProvider extends ServiceProvider
      */
 
     protected $policies = [
+		 \App\Models\Reply::class => \App\Policies\ReplyPolicy::class,
 		 \App\Models\Topic::class => \App\Policies\TopicPolicy::class,
         'App\Model' => 'App\Policies\ModelPolicy',
         //为用户模型User指定授权策略UserPolicy
