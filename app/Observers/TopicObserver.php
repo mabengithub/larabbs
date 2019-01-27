@@ -28,4 +28,10 @@ class TopicObserver
             dispatch(new TranslateSlug($topic));
         }
     }
+
+    // 话题删除时候所有回复也要删除
+    public function deleted(Topic $topic)
+    {
+        \DB::table('replies')->where('topic_id', $topic->id)->delete();
+    }
 }
