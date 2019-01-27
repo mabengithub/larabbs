@@ -8,6 +8,8 @@
 	<!-- CSRF Token -->
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<title>@yield('title', 'LaraBBS') -LaraBlog</title>
+	<meta name="description" content="@yield('description', setting('seo_description', 'LaraBBS 爱好者社区。'))" />
+    <meta name="keyword" content="@yield('keyword', setting('seo_keyword', 'LaraBBS,社区,论坛,开发者论坛'))" />
 	<!-- SEO优化 -->
 	<meta name="description" content="@yield('description', 'Larabbs博客')">
 
