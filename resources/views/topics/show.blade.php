@@ -18,7 +18,7 @@
                 <div class="media">
                     <div align="center">
                         <a href="{{ route('users.show', $topic->user->id) }}">
-                            <img class="thumbnail" src="{{ $topic->user->avatar }}" width="300px" height="300px">
+                            <img class="thumbnail img-responsive" src="{{ $topic->user->avatar }}" width="300px" height="300px">
                         </a>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
         {{-- 用户回复列表 --}}
         <div class="panel panel-default topic-reply">
             <div class="panel-body">
-                @include('topics._reply_box', ['topic' => $topic])
+                @includeWhen(Auth::check(), 'topics._reply_box', ['topic' => $topic])
                 @include('topics._reply_list', ['replies' => $topic->replies()->with('user')->get()])
             </div>
         </div>
